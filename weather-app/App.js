@@ -1,12 +1,13 @@
-import { Text, View } from "react-native";
+import { Text, View,ImageBackground } from "react-native";
 import {s} from "./App.style"
+import hotImage from "./assets/hot.png"
 export default function App() {
   return (
-    <View style={s.container}>
+    <ImageBackground source={hotImage}style={s.container} >
       <View style={s.workspace}>
         <View>
         <Text>Temperature  </Text>
-        </View>
+        </View> 
         <View>
         <Text>Input  </Text>
         </View>
@@ -16,7 +17,7 @@ export default function App() {
        
       </View>
 
-    </View>
+    </ImageBackground>
   
   );
 }

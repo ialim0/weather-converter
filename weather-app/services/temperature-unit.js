@@ -5,4 +5,12 @@
     
  }
 
- export {getMirrorUnit}
+ function isIceTemp(value,unit){
+    if(unit==UNITS.celcius){
+        return value <=0;
+    }else{
+      return   value<=32
+    }
+
+ }
+ export {getMirrorUnit,isIceTemp}

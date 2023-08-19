@@ -21,7 +21,7 @@ export default function App() {
    
     <ImageBackground source={hotImage}style={s.container} >
       <View style={s.workspace}>
-       <TemperatureDisplay value={convertTemp(unitMirror,inputValue)} unit={unitMirror}/> 
+       <TemperatureDisplay value={convertTemp(unitMirror,inputValue).toFixed(1)} unit={unitMirror}/> 
         <InputTemperature onChangeText={setInputValue}   defaultValue={DEFAULT_TEMPERATURE} unit={currentUnit}  />
       
         <View>

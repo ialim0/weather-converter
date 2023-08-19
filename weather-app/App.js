@@ -7,7 +7,7 @@ import {TemperatureDisplay} from "./components/TemperatureDisplay.style.jsx";
 import { DEFAULT_UNITS,DEFAULT_TEMPERATURE } from "./constant";
 import { getMirrorUnit } from "./services/temperature-unit";
 import { convertTemp } from "./services/conversion";
-
+import { ButtonConv } from "./components/Boutton.jsx";
 
 export default function App() {
   const [inputValue, setInputValue]= useState("0"); 
@@ -16,19 +16,21 @@ export default function App() {
   function checker(){
     const valueFloat=Number.parseFloat(inputValue);
     return isNaN(valueFloat)?"":convertTemp(unitMirror,valueFloat).toFixed(1)
-  }
+  } 
   return (
    
     <ImageBackground source={hotImage}style={s.container} >
       <View style={s.workspace}>
        <TemperatureDisplay value={convertTemp(unitMirror,inputValue)} unit={unitMirror}/> 
-        <InputTemperature onChangeText={setInputValue}   defaultValue={DEFAULT_TEMPERATURE}   />
+        <InputTemperature onChangeText={setInputValue}   defaultValue={DEFAULT_TEMPERATURE} unit={currentUnit}  />
       
         <View>
-        <Text>Temperature  </Text>
+        <ButtonConv onPress={()=>{
+          setCurrentUnit(unitMirror)
+        }} unit={currentUnit} />
         </View>
         
-      </View>
+      </View> 
 
     </ImageBackground>
   
